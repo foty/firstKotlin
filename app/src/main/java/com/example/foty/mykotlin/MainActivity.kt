@@ -2,6 +2,7 @@ package com.example.foty.mykotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         list2.removeAt(3)
 
         for (i in list2.indices){
-
+            Log.d("TPA","测试提交")
         }
 
         var stringArr = emptyArray<Int>()
