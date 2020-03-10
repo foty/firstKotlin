@@ -51,12 +51,18 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/mainViewpager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/cCDCDCD" />
+
+        <com.example.foty.mykotlin.view.BottomTabLayout
+            android:id="@+id/mainBottomTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
 
 
     </LinearLayout>
@@ -66,7 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/navigation_view_header_layout" />
+        app:headerLayout="@layout/navigation_view_header_layout"
+        app:menu="@menu/navigation_view_menu_layout" />
 
 
 </android.support.v4.widget.DrawerLayout>
