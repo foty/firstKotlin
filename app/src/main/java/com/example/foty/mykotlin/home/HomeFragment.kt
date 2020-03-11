@@ -1,4 +1,4 @@
-package com.example.foty.mykotlin.fragment
+package com.example.foty.mykotlin.home
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView

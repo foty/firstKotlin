@@ -2,12 +2,11 @@ package com.example.foty.mykotlin.main
 
 import android.util.Log
 import android.view.Gravity
-import android.view.View
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.adapter.MyViewPagerAdapter
 import com.example.foty.mykotlin.base.BaseFragment
 import com.example.foty.mykotlin.base.BaseMvpActivity
-import com.example.foty.mykotlin.fragment.HomeFragment
+import com.example.foty.mykotlin.home.HomeFragment
 import com.example.foty.mykotlin.utils.ToastUtil
 import com.example.foty.mykotlin.view.BottomTabLayout
 import kotlinx.android.synthetic.main.activity_main.*

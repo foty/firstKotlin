@@ -1,4 +1,4 @@
-package com.example.foty.mykotlin.fragment
+package com.example.foty.mykotlin.home
 
 import com.example.foty.mykotlin.base.BaseView
 
