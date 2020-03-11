@@ -11,6 +11,7 @@ import com.example.foty.mykotlin.fragment.HomeFragment
 import com.example.foty.mykotlin.utils.ToastUtil
 import com.example.foty.mykotlin.view.BottomTabLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
 
