@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 /**
  * Create by lxx
  * Date : 2020/3/10 16:36
- * Use by
+ * Use by home模块
  */
 class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeContract.View {
 

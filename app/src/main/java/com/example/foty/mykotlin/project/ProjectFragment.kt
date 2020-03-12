@@ -6,7 +6,7 @@ import com.example.foty.mykotlin.base.BaseMvpFragment
 /**
  * Create by lxx
  * Date : 2020/3/11 17:35
- * Use by
+ * Use by 项目模块
  */
 class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectConstract.View {
 
