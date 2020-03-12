@@ -1,7 +1,9 @@
 package com.example.foty.mykotlin.project
 
 import com.example.foty.mykotlin.R
+import com.example.foty.mykotlin.adapter.MyViewPagerAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
+import kotlinx.android.synthetic.main.fragment_project.*
 
 /**
  * Create by lxx
@@ -10,7 +12,7 @@ import com.example.foty.mykotlin.base.BaseMvpFragment
  */
 class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectConstract.View {
 
-    companion object{
+    companion object {
         fun newInstance() = ProjectFragment()
     }
 
@@ -27,6 +29,24 @@ class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectConstract.Vi
     }
 
     override fun initView() {
+
+        //初始化ViewPager与TabLayout
+        val viewpagerAdapter = MyViewPagerAdapter(childFragmentManager)
+
+        val fragmentDetails = arrayListOf<ProjectDetailFragment>()
+        val titles = arrayListOf<String>()
+        titles.add("最新项目")
+        titles.add("最好项目")
+        titles.add("最热项目")
+        fragmentDetails.add(ProjectDetailFragment.newInstance())
+        fragmentDetails.add(ProjectDetailFragment.newInstance())
+        fragmentDetails.add(ProjectDetailFragment.newInstance())
+
+        viewpagerAdapter.setFragmentsAndTitles(fragmentDetails, titles)
+        projectViewPager.adapter = viewpagerAdapter
+        //关联viewpager
+        projectTabLayout.setupWithViewPager(projectViewPager)
+
     }
 
     override fun initLoad() {

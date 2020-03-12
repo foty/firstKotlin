@@ -72,3 +72,18 @@ FloatingActionButton  (材料设计)
 
 toto
 从0开始写一个recycleviewadapter
+
+git 相关
+git config -l
+
+查看此项目下的作者信息   
+git config user.name    
+git config user.email   
+
+修改此项目下的git作者信息  
+git config user.name "xxx"  
+git config user.email "xxx"   
+
+查看git全局作者信息  
+git config --global user.name  
+git config --global user.email  
