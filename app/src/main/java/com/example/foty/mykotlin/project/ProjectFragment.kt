@@ -1,5 +1,6 @@
 package com.example.foty.mykotlin.project
 
+import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.base.BaseMvpFragment
 
 /**
@@ -19,7 +20,7 @@ class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectConstract.Vi
     }
 
     override fun getLayoutResID(): Int {
-        return 0
+        return R.layout.fragment_project
     }
 
     override fun initData() {
