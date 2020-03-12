@@ -7,4 +7,5 @@ package com.example.foty.mykotlin.beans
  */
 data class DataItemBean(val tittle: String, val type: String,
                         val author: String, val time: String,
+                        val desc : String = "",
                         var like: Boolean = false)
