@@ -7,4 +7,15 @@ FragmentManager对象，叫 getChildFragmentManager()。随后实现父类的几
 
 
 TabLayout
-* 使用 setupWithViewPager(ViewPager vp) 与viewPager关联
+* 使用 setupWithViewPager(ViewPager vp) 与viewPager关联  
+
+FlexboxLayout(弹性布局)  可以理解为强大的LinearLayout 布局，在16年google I/O 大会上开源的控件，同时开源的还有ConstraintLayout。
+FlexboxLayout 与 LinearLayout的区别在与FlexboxLayout具有换行属性。
+* 注意，如果你的项目没有迁移到android X，请使用 1.0.0版本，如果已经使用了android X，请使用1.1.0版本  
+* 添加依赖 : compile 'com.google.android:flexbox:1.0.0'
+下面是关于这个控件的属性说明:
+* flexDirection : 此属性决定主轴项目排列方向。预备值有: row(默认)：水平方向，起点为左边；column：竖直方向，起点在上方；row_reverse：
+水平方向，起点在右边；column_reverse : 竖直方向，起点在下方。
+* flexWrap ： 决定是否换行以及换行格式。值有 nowrap : 不换行(默认)；wrap：顺方向换行；wrap_reverse : 逆方向=换行。
+* justifyContent： 对齐方式。flex_start : 左对齐(默认)；flex_end : 右对齐；center : 居中；space_between ： 
+两端对齐，内容之间距离相等；space_around ： 只有两侧距离相等，内容之间距离比两侧距离大。

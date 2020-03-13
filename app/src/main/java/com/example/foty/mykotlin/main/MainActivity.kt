@@ -8,6 +8,7 @@ import com.example.foty.mykotlin.base.BaseFragment
 import com.example.foty.mykotlin.base.BaseMvpActivity
 import com.example.foty.mykotlin.home.HomeFragment
 import com.example.foty.mykotlin.project.ProjectFragment
+import com.example.foty.mykotlin.system.SystemFragment
 import com.example.foty.mykotlin.utils.ToastUtil
 import com.example.foty.mykotlin.view.BottomTabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -54,7 +55,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
         val list = arrayListOf<BaseFragment>().apply {
             add(HomeFragment.newInstance())
             add(ProjectFragment.newInstance())
-            add(HomeFragment.newInstance())
+            add(SystemFragment.newInstance())
             add(HomeFragment.newInstance())
             add(HomeFragment.newInstance())
         }
