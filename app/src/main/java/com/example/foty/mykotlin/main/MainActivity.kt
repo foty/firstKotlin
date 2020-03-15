@@ -7,6 +7,7 @@ import com.example.foty.mykotlin.adapter.MyViewPagerAdapter
 import com.example.foty.mykotlin.base.BaseFragment
 import com.example.foty.mykotlin.base.BaseMvpActivity
 import com.example.foty.mykotlin.home.HomeFragment
+import com.example.foty.mykotlin.navigation.NavigationFragment
 import com.example.foty.mykotlin.project.ProjectFragment
 import com.example.foty.mykotlin.system.SystemFragment
 import com.example.foty.mykotlin.utils.ToastUtil
@@ -56,7 +57,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
             add(HomeFragment.newInstance())
             add(ProjectFragment.newInstance())
             add(SystemFragment.newInstance())
-            add(HomeFragment.newInstance())
+            add(NavigationFragment.newInstance())
             add(HomeFragment.newInstance())
         }
 
