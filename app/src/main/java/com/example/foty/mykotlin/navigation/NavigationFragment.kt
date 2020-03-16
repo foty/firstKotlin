@@ -47,12 +47,14 @@ class NavigationFragment : BaseMvpFragment<NavigationPresenter>(), NavigationCon
         fragments.add(NavFragmentDetail.newInstance())
         fragments.add(NavFragmentDetail.newInstance())
         naviTabLayout.addTabs(tabList)
-        val transaction = fragmentManager.beginTransaction()
+        val transaction = fragmentManager!!.beginTransaction()
         for (item in fragments) {
             transaction.add(R.id.naviDetailContainer, item).hide(item)
         }
         transaction.show(fragments[0])
         transaction.commit()
+//        transaction.commitAllowingStateLoss()
+//        fragmentManager.executePendingTransactions()
 
         naviTabLayout.setOnTabClickListener(object : VerticalTabLayout.OnTabClickListener {
             override fun onTabClick(oldTabIndex: Int, newTabIndex: Int) {
@@ -60,14 +62,9 @@ class NavigationFragment : BaseMvpFragment<NavigationPresenter>(), NavigationCon
             }
         })
 
-        naviTabLayout.setOnClickListener(object :View.OnClickListener{
-            override fun onClick(v: View?) {
-
-            }
-        })
-
     }
 
     override fun initLoad() {
     }
+
 }

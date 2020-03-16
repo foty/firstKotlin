@@ -51,7 +51,6 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
         }
 
 
-
         //高级函数 let with run apply also
         val list = arrayListOf<BaseFragment>().apply {
             add(HomeFragment.newInstance())
