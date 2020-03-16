@@ -21,14 +21,17 @@ class SystemAdapter(context: Context, datas: List<SystemBean>?, loadMore: Boolea
     }
 
     override fun convert(holder: ViewHolder, itemBean: SystemBean, position: Int) {
-        with(holder){
+        with(holder) {
             setText(R.id.treeTitleTv, itemBean.tittle)
             setTreeData(mContext, getView(R.id.treeFL), itemBean.context)
         }
     }
 
     private fun setTreeData(mContext: Context?, flexView: FlexboxLayout, str: String) {
-        for (text in 1..5){
+        if (flexView.childCount != 0) {
+            flexView.removeAllViews()
+        }
+        for (text in 1..5) {
             val view = TextView(mContext)
             view.text = str
             flexView.addView(view)

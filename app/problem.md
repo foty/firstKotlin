@@ -4,3 +4,6 @@
 
 2、Dex archives: setting .DEX extension only for .CLASS files    
 这个错误大多是编译器抽风导致，实际项目没有问题，重新clean，build或者运行即可。
+
+3、 ``java.lang.IllegalStateException: Fragment already added``   
+处理方案： 
