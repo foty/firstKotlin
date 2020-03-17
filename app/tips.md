@@ -19,3 +19,17 @@ FlexboxLayout 与 LinearLayout的区别在与FlexboxLayout具有换行属性。
 * flexWrap ： 决定是否换行以及换行格式。值有 nowrap : 不换行(默认)；wrap：顺方向换行；wrap_reverse : 逆方向=换行。
 * justifyContent： 对齐方式。flex_start : 左对齐(默认)；flex_end : 右对齐；center : 居中；space_between ： 
 两端对齐，内容之间距离相等；space_around ： 只有两侧距离相等，内容之间距离比两侧距离大。
+
+
+retrofit的使用
+* 创建retrofit对象
+* 创建请求的服务
+
+
+OkHttp创建: 都是通过OkHttpClient.Builder()对象来完成一系列的构建，最后调用build()方法转换成
+OkHttpClient对象。  
+* 设置连接超时
+* 设置读，写连接超时
+* 设置连接重定向(看需求)
+* 设置log拦截器
+* 设置cookie拦截器(看需求)
