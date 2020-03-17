@@ -3,6 +3,7 @@ package com.example.foty.mykotlin.main
 import android.util.Log
 import android.view.Gravity
 import com.example.foty.mykotlin.R
+import com.example.foty.mykotlin.accounts.AccountsFragment
 import com.example.foty.mykotlin.adapter.MyViewPagerAdapter
 import com.example.foty.mykotlin.base.BaseFragment
 import com.example.foty.mykotlin.base.BaseMvpActivity
@@ -56,8 +57,8 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
             add(HomeFragment.newInstance())
             add(ProjectFragment.newInstance())
             add(SystemFragment.newInstance())
-            add(NavigationFragment.newInstance())
             add(HomeFragment.newInstance())
+            add(AccountsFragment.newInstance())
         }
 
         val pagerAdapter = MyViewPagerAdapter(supportFragmentManager)
