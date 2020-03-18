@@ -1,5 +1,6 @@
 package com.example.foty.mykotlin.navigation
 
+import android.util.Log
 import android.view.View
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.base.BaseFragment
@@ -7,6 +8,7 @@ import com.example.foty.mykotlin.base.BaseMvpFragment
 import com.example.foty.mykotlin.utils.ToastUtil
 import com.example.foty.mykotlin.view.VerticalTabLayout
 import kotlinx.android.synthetic.main.fragment_navigation.*
+import kotlin.math.log
 
 /**
  * Created by PlaceHolder on 2020/3/15.
@@ -35,6 +37,7 @@ class NavigationFragment : BaseMvpFragment<NavigationPresenter>(), NavigationCon
     }
 
     override fun initView() {
+        Log.d("lxx","initView()")
         val tabList = arrayListOf<String>().apply {
             add("真丝毛毯1")
             add("真丝毛毯2")
