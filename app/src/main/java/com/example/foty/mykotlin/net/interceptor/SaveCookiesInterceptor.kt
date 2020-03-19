@@ -1,6 +1,6 @@
 package com.shehuan.wanandroid.base.net.interceptor
 
-import com.shehuan.wanandroid.utils.sp.SpUtil
+import com.example.foty.mykotlin.utils.SpUtil
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.lang.StringBuilder

@@ -27,8 +27,9 @@ abstract class BaseObserver<T> : Observer<T> {
     }
 
     override fun onError(e: Throwable) {
-        val responseException: ResponseException = e as ResponseException
-        val errorMessage = responseException.getErrorMessage()
+//        val responseException: ResponseException = e as ResponseException
+//        val errorMessage = responseException.getErrorMessage()
+        e.printStackTrace()
         onError(e)
     }
 

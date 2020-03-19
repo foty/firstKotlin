@@ -1,4 +1,5 @@
 package com.example.foty.mykotlin.net
+import android.util.Log
 import io.reactivex.functions.Function
 import java.lang.RuntimeException
 
