@@ -1,5 +1,6 @@
 package com.example.foty.mykotlin.net
 
+import com.example.foty.mykotlin.beans.ArticleBean
 import com.example.foty.mykotlin.beans.BannerBean
 import com.example.foty.mykotlin.beans.DataItemBean
 import io.reactivex.Observable
@@ -40,7 +41,7 @@ interface WanAndroidApis {
      * 首页文章列表
      */
     @GET("article/list/{pageNum}/json")
-    fun articleList(@Path("pageNum") pageNum: Int): Observable<BaseResponse<DataItemBean>>
+    fun articleList(@Path("pageNum") pageNum: Int): Observable<BaseResponse<ArticleBean>>
 
     /**
      * 热词（目前搜索最多的关键词）
