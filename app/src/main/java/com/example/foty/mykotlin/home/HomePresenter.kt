@@ -3,6 +3,7 @@ package com.example.foty.mykotlin.home
 import android.util.Log
 import com.example.foty.mykotlin.base.BasePresenter
 import com.example.foty.mykotlin.beans.ArticleBean
+import com.example.foty.mykotlin.beans.BannerBean
 import com.example.foty.mykotlin.net.*
 
 /**
@@ -13,7 +14,6 @@ import com.example.foty.mykotlin.net.*
 class HomePresenter(view: HomeContract.View) : BasePresenter<HomeContract.View>(view), HomeContract.Presenter {
 
     override fun getArticleList(pageNum: Int) {
-        Log.d("lxx", "请求数据")
         RequestManager.execute(this, RetrofitManager.create(WanAndroidApis::class.java).articleList(pageNum),
                 object : BaseObserver<ArticleBean>() {
                     override fun onSuccess(data: ArticleBean) {
@@ -26,6 +26,15 @@ class HomePresenter(view: HomeContract.View) : BasePresenter<HomeContract.View>(
     }
 
     override fun getBannerData() {
+        RequestManager.execute(this, RetrofitManager.create(WanAndroidApis::class.java).banner(),
+                object : BaseObserver<List<BannerBean>>() {
+            override fun onSuccess(data: List<BannerBean>) {
+                view.loadBannerSuccess(data)
+            }
+
+            override fun onError(e: ResponseException) {
+            }
+        })
 
     }
 

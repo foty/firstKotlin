@@ -61,6 +61,8 @@
         android:id="@+id/articleCollectIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:paddingLeft="25dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_like" />

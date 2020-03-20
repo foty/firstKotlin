@@ -2,6 +2,7 @@ package com.example.foty.mykotlin.home
 
 import com.example.foty.mykotlin.base.BaseView
 import com.example.foty.mykotlin.beans.ArticleBean
+import com.example.foty.mykotlin.beans.BannerBean
 
 /**
  * Create by lxx
@@ -13,6 +14,8 @@ interface HomeContract {
     interface View : BaseView {
 
         fun loadArticleListSuccess(data: ArticleBean)
+
+        fun loadBannerSuccess(data: List<BannerBean>)
     }
 
     interface Presenter {

@@ -47,6 +47,7 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeContract.View {
 
     override fun initData() {
         presenter.getArticleList(pageNum)
+        presenter.getBannerData()
     }
 
     override fun initView() {
@@ -66,21 +67,24 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeContract.View {
         adapter = HomeAdapter(context, null, true)
 
         adapter.run {
+            //把banner当做列表的头部添加
+            addHeaderView(banner)
 
-        setLoadingView(R.layout.rv_loading_layout)
+            setLoadingView(R.layout.rv_loading_layout)
 //        setLoadEndView(R.layout.rv_load_end_layout)
 //        setLoadFailedView(R.layout.rv_load_failed_layout)
 
             //列表的点击事件
-            setOnItemClickListener { _, datas, position ->
-                ToastUtil.show(context, "你点击了第$position 个，${datas.title}")
+            setOnItemClickListener { _, datas, _ ->
+                ArticleWebActivity.startActivity(mContext, datas.link)
             }
 
             //列表下子控件的点击事件
             setOnItemChildClickListener(R.id.articleCollectIv) { _, data1, position ->
                 data1.collect = !data1.collect
-                adapter.change(position)
-                ToastUtil.show(context, "收藏成功")
+                //+1是因为把banner添加到了头部，在adapter中列表中位置均要往后移一位
+                adapter.change(position + 1)
+                ToastUtil.show(context, "收藏成功   $position")
             }
 
             setOnLoadMoreListener {
@@ -104,6 +108,20 @@ class HomeFragment : BaseMvpFragment<HomePresenter>(), HomeContract.View {
             adapter.loadEnd()
             return
         }
+    }
+
+    override fun loadBannerSuccess(data: List<BannerBean>) {
+        val urls = arrayListOf<String>()
+        val tittles = arrayListOf<String>()
+        for (bean in data) {
+            urls.add(bean.imagePath)
+            tittles.add(bean.title)
+        }
+
+        banner.setImages(urls)
+        banner.setBannerTitles(tittles)
+        banner.start()
+
     }
 
     override fun initLoad() {
