@@ -3,6 +3,7 @@ package com.example.foty.mykotlin.project
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.adapter.MyViewPagerAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
+import com.example.foty.mykotlin.beans.ProjectCategoryBean
 import kotlinx.android.synthetic.main.fragment_project.*
 
 /**
@@ -10,7 +11,10 @@ import kotlinx.android.synthetic.main.fragment_project.*
  * Date : 2020/3/11 17:35
  * Use by 项目模块
  */
-class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectConstract.View {
+class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectContract.View {
+    override fun loadProjectSuccess(data: List<ProjectCategoryBean>) {
+
+    }
 
     companion object {
         fun newInstance() = ProjectFragment()
@@ -26,6 +30,7 @@ class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectConstract.Vi
     }
 
     override fun initData() {
+        presenter.getProjectList()
     }
 
     override fun initView() {

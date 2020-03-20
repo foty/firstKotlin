@@ -3,6 +3,7 @@ package com.example.foty.mykotlin.net
 import com.example.foty.mykotlin.beans.ArticleBean
 import com.example.foty.mykotlin.beans.BannerBean
 import com.example.foty.mykotlin.beans.DataItemBean
+import com.example.foty.mykotlin.beans.ProjectCategoryBean
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -77,7 +78,7 @@ interface WanAndroidApis {
      * 项目分类
      */
     @GET("project/tree/json")
-    fun projectCategory(): Observable<BaseResponse<List<DataItemBean>>>
+    fun projectCategory(): Observable<BaseResponse<List<ProjectCategoryBean>>>
 
 
     /**
