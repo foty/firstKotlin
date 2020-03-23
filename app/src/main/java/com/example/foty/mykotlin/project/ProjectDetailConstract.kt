@@ -1,6 +1,7 @@
 package com.example.foty.mykotlin.project
 
 import com.example.foty.mykotlin.base.BaseView
+import com.example.foty.mykotlin.beans.ProjectBean
 
 /**
  * Create by lxx
@@ -10,10 +11,10 @@ import com.example.foty.mykotlin.base.BaseView
 interface ProjectDetailConstract {
 
     interface View : BaseView {
-
+        fun loadDetailSuccess(data: ProjectBean)
     }
 
     interface Presenter {
-
+        fun getDetailArticle(pageNum: Int, cid: Int)
     }
 }

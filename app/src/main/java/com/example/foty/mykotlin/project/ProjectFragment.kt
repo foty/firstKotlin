@@ -1,5 +1,6 @@
 package com.example.foty.mykotlin.project
 
+import android.util.Log
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.adapter.MyViewPagerAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
@@ -12,9 +13,6 @@ import kotlinx.android.synthetic.main.fragment_project.*
  * Use by 项目模块
  */
 class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectContract.View {
-    override fun loadProjectSuccess(data: List<ProjectCategoryBean>) {
-
-    }
 
     companion object {
         fun newInstance() = ProjectFragment()
@@ -35,23 +33,22 @@ class ProjectFragment : BaseMvpFragment<ProjectPresenter>(), ProjectContract.Vie
 
     override fun initView() {
 
-        //初始化ViewPager与TabLayout
-        val viewpagerAdapter = MyViewPagerAdapter(childFragmentManager)
+    }
+
+    override fun loadProjectSuccess(data: List<ProjectCategoryBean>) {
 
         val fragmentDetails = arrayListOf<ProjectDetailFragment>()
         val titles = arrayListOf<String>()
-        titles.add("最新项目")
-        titles.add("最好项目")
-        titles.add("最热项目")
-        fragmentDetails.add(ProjectDetailFragment.newInstance())
-        fragmentDetails.add(ProjectDetailFragment.newInstance())
-        fragmentDetails.add(ProjectDetailFragment.newInstance())
-
+        for (item in data) {
+            titles.add(item.name)
+            fragmentDetails.add(ProjectDetailFragment.newInstance(item.id))
+        }
+        //初始化ViewPager与TabLayout
+        val viewpagerAdapter = MyViewPagerAdapter(childFragmentManager)
         viewpagerAdapter.setFragmentsAndTitles(fragmentDetails, titles)
         projectViewPager.adapter = viewpagerAdapter
         //关联viewpager
         projectTabLayout.setupWithViewPager(projectViewPager)
-
     }
 
     override fun initLoad() {

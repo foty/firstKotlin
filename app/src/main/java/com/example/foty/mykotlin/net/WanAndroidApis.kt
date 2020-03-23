@@ -1,9 +1,6 @@
 package com.example.foty.mykotlin.net
 
-import com.example.foty.mykotlin.beans.ArticleBean
-import com.example.foty.mykotlin.beans.BannerBean
-import com.example.foty.mykotlin.beans.DataItemBean
-import com.example.foty.mykotlin.beans.ProjectCategoryBean
+import com.example.foty.mykotlin.beans.*
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -85,7 +82,7 @@ interface WanAndroidApis {
      * 项目分类详情列表
      */
     @GET("project/list/{pageNum}/json")
-    fun projectDetail(@Path("pageNum") pageNum: Int, @Query("cid") cid: Int): Observable<BaseResponse<DataItemBean>>
+    fun projectDetail(@Path("pageNum") pageNum: Int, @Query("cid") cid: Int): Observable<BaseResponse<ProjectBean>>
 
 
     /**
