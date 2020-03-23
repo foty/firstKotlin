@@ -95,7 +95,7 @@ interface WanAndroidApis {
      * 微信公众号列表
      */
     @GET("wxarticle/chapters/json")
-    fun chapter(): Observable<BaseResponse<List<DataItemBean>>>
+    fun chapter(): Observable<BaseResponse<List<ChapterBean>>>
 
     /**
      * 微信公众号文章列表
