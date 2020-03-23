@@ -1,6 +1,7 @@
 package com.example.foty.mykotlin.system
 
 import com.example.foty.mykotlin.base.BaseView
+import com.example.foty.mykotlin.beans.TreeBean
 
 /**
  * Create by lxx
@@ -9,10 +10,10 @@ import com.example.foty.mykotlin.base.BaseView
  */
 interface SystemConstract {
     interface View : BaseView {
-
+        fun loadDataSuccess(data: List<TreeBean>)
     }
 
     interface Presenter {
-        
+        fun getDataList()
     }
 }

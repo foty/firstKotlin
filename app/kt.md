@@ -105,3 +105,7 @@ git config user.email "xxx"
 查看git全局作者信息  
 git config --global user.name  
 git config --global user.email  
+
+
+kt序列化(有3种方式)   
+资料参考： ``https://blog.csdn.net/sinat_31057219/article/details/96730938``

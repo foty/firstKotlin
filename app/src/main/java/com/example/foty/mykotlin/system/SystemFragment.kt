@@ -5,6 +5,7 @@ import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.adapter.SystemAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
 import com.example.foty.mykotlin.beans.SystemBean
+import com.example.foty.mykotlin.beans.TreeBean
 import com.example.foty.mykotlin.view.DividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_system.*
 
@@ -14,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_system.*
  * Use by
  */
 class SystemFragment : BaseMvpFragment<SystemPresenter>(), SystemConstract.View {
+
+    private lateinit var adapter: SystemAdapter
 
     companion object {
         fun newInstance(): SystemFragment {
@@ -30,24 +33,21 @@ class SystemFragment : BaseMvpFragment<SystemPresenter>(), SystemConstract.View 
     }
 
     override fun initData() {
+        presenter.getDataList()
     }
 
     override fun initView() {
         treeRv.layoutManager = LinearLayoutManager(mContext)
-        val adapter = SystemAdapter(mContext, null, false)
+        adapter = SystemAdapter(mContext, null, false)
         treeRv.addItemDecoration(DividerItemDecoration()
                 .setDividerHeight(20)
                 .setDividerColor(resources.getColor(R.color.cEEEEF5)))
         treeRv.adapter = adapter
 
-        val systemBean = SystemBean("哈哈哈哈", "兄弟6啊    ")
-        val list = arrayListOf<SystemBean>()
+    }
 
-        for (i in 1..25) {
-            list.add(systemBean)
-        }
-        adapter.setNewData(list)
-
+    override fun loadDataSuccess(data: List<TreeBean>) {
+        adapter.setNewData(data)
     }
 
     override fun initLoad() {

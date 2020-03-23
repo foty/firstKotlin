@@ -57,7 +57,7 @@ interface WanAndroidApis {
      * 体系结构
      */
     @GET("tree/json")
-    fun tree(): Observable<BaseResponse<List<DataItemBean>>>
+    fun tree(): Observable<BaseResponse<List<TreeBean>>>
 
     /**
      * 体系下的文章

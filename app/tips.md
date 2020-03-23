@@ -8,6 +8,8 @@ FragmentManager对象，叫 getChildFragmentManager()。随后实现父类的几
 
 TabLayout
 * 使用 setupWithViewPager(ViewPager vp) 与viewPager关联  
+* 要想让TabLayout水平滚动，注意添加属性: ``app:tabMode="scrollable"``,如果tab太多又没有设置这个属性可能会导致tab上的
+tittle显示不出来。
 
 FlexboxLayout(弹性布局)  可以理解为强大的LinearLayout 布局，在16年google I/O 大会上开源的控件，同时开源的还有ConstraintLayout。
 FlexboxLayout 与 LinearLayout的区别在与FlexboxLayout具有换行属性。
