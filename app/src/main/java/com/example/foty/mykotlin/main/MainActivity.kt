@@ -46,7 +46,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
                 R.id.nav_item_about -> ToastUtil.show(mContext, "1111")
                 R.id.nav_item_collect -> ToastUtil.show(mContext, "2222")
                 R.id.nav_item_logout -> ToastUtil.show(mContext, "3333")
-                R.id.nav_item_setting -> ToastUtil.show(mContext, "4444")
+                R.id.nav_item_setting -> exit()
             }
             return@setNavigationItemSelectedListener true
         }
@@ -57,7 +57,7 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
             add(HomeFragment.newInstance())
             add(ProjectFragment.newInstance())
             add(SystemFragment.newInstance())
-            add(HomeFragment.newInstance())
+            add(NavigationFragment.newInstance())
             add(AccountsFragment.newInstance())
         }
 
@@ -80,6 +80,10 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
     }
 
     override fun initLoad() {
+    }
+
+    fun exit(){
+        finish()
     }
 
     private fun add(x: Int, y: Int, z: Int, q: Int = 0) {

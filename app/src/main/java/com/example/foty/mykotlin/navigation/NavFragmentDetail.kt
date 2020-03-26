@@ -1,5 +1,6 @@
 package com.example.foty.mykotlin.navigation
 
+import android.os.Bundle
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.base.BaseFragment
 import com.example.foty.mykotlin.utils.ToastUtil
@@ -13,7 +14,13 @@ import kotlinx.android.synthetic.main.fragment_nav_detail.*
 class NavFragmentDetail : BaseFragment() {
 
     companion object {
-        fun newInstance() = NavFragmentDetail()
+        fun newInstance(str: String): NavFragmentDetail {
+            val f = NavFragmentDetail()
+            f.arguments = Bundle().apply {
+                putString("str", str)
+            }
+            return f
+        }
     }
 
     override fun getLayoutResID(): Int {
@@ -24,8 +31,10 @@ class NavFragmentDetail : BaseFragment() {
     }
 
     override fun initView() {
-        navDetailFL.addCommonView(mContext, "哈哈哈", R.color.c2C2C2C, R.drawable.website_selecter) {
-            ToastUtil.show(mContext,"666")
+        val str = arguments.getString("str")
+
+        navDetailFL.addCommonView(mContext, "哈哈哈$str", R.color.c2C2C2C, R.drawable.website_selecter) {
+            ToastUtil.show(mContext, "666")
         }
     }
 
