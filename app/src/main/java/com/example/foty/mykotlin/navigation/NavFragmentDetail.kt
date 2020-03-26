@@ -3,6 +3,8 @@ package com.example.foty.mykotlin.navigation
 import android.os.Bundle
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.base.BaseFragment
+import com.example.foty.mykotlin.beans.ArticlesItem
+import com.example.foty.mykotlin.beans.NaviBean
 import com.example.foty.mykotlin.utils.ToastUtil
 import com.example.foty.mykotlin.utils.addCommonView
 import kotlinx.android.synthetic.main.fragment_nav_detail.*
@@ -14,10 +16,10 @@ import kotlinx.android.synthetic.main.fragment_nav_detail.*
 class NavFragmentDetail : BaseFragment() {
 
     companion object {
-        fun newInstance(str: String): NavFragmentDetail {
+        fun newInstance(list: ArrayList<ArticlesItem>): NavFragmentDetail {
             val f = NavFragmentDetail()
             f.arguments = Bundle().apply {
-                putString("str", str)
+                putParcelableArrayList("list", list)
             }
             return f
         }
@@ -31,10 +33,12 @@ class NavFragmentDetail : BaseFragment() {
     }
 
     override fun initView() {
-        val str = arguments.getString("str")
+        val list = arguments?.getParcelableArrayList<ArticlesItem>("list") ?: ArrayList()
 
-        navDetailFL.addCommonView(mContext, "哈哈哈$str", R.color.c2C2C2C, R.drawable.website_selecter) {
-            ToastUtil.show(mContext, "666")
+        for (item in list) {
+            navDetailFL.addCommonView(mContext, item.title, R.color.c2C2C2C, R.drawable.website_selecter) {
+                ToastUtil.show(mContext, "666")
+            }
         }
     }
 

@@ -89,7 +89,7 @@ interface WanAndroidApis {
      * 导航
      */
     @GET("navi/json")
-    fun nav(): Observable<BaseResponse<List<DataItemBean>>>
+    fun nav(): Observable<BaseResponse<List<NaviBean>>>
 
     /**
      * 微信公众号列表
