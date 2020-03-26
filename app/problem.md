@@ -6,4 +6,5 @@
 这个错误大多是编译器抽风导致，实际项目没有问题，重新clean，build或者运行即可。
 
 3、 ``java.lang.IllegalStateException: Fragment already added``   
-处理方案： 一开始使用fragmentManager提交事务,后来修改使用childFragmentManager解决问题；
+处理方案： 一开始使用fragmentManager提交事务,后来修改使用childFragmentManager解决问题；tip:``fragment嵌套fragment一定
+要使用childFragmentManager``

@@ -65,6 +65,8 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
         pagerAdapter.setFragments(list)
         mainViewpager.adapter = pagerAdapter
 
+        mainViewpager.offscreenPageLimit = list.size
+
         mainBottomTabLayout.setupWithViewPager(mainViewpager)
         mainBottomTabLayout.setOnTabSwitchListener(object : BottomTabLayout.OnTabSwitchListener{
             override fun onTabSwitch(tabIndex: Int, tabName: String) {
