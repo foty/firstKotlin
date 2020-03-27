@@ -33,6 +33,7 @@ class SystemFragment : BaseMvpFragment<SystemPresenter>(), SystemConstract.View 
     }
 
     override fun initData() {
+        showProgress()
         presenter.getDataList()
     }
 
@@ -47,6 +48,7 @@ class SystemFragment : BaseMvpFragment<SystemPresenter>(), SystemConstract.View 
     }
 
     override fun loadDataSuccess(data: List<TreeBean>) {
+        hideProgress()
         adapter.setNewData(data)
     }
 
