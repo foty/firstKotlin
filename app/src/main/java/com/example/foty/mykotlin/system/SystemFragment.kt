@@ -45,6 +45,9 @@ class SystemFragment : BaseMvpFragment<SystemPresenter>(), SystemConstract.View 
                 .setDividerColor(resources.getColor(R.color.cEEEEF5)))
         treeRv.adapter = adapter
 
+        adapter.setOnItemClickListener{_,data,_ ->
+            SystemDetailActivity.startActivity(mContext,data.children)
+        }
     }
 
     override fun loadDataSuccess(data: List<TreeBean>) {

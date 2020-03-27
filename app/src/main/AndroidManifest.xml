@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.ArticleWebActivity"/>
+        <activity android:name=".system.SystemDetailActivity"/>
     </application>
 
 </manifest>

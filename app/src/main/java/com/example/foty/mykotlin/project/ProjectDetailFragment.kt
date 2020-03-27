@@ -7,6 +7,8 @@ import com.example.foty.mykotlin.adapter.ProjectDetailAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
 import com.example.foty.mykotlin.beans.DataItemBean
 import com.example.foty.mykotlin.beans.ProjectBean
+import com.example.foty.mykotlin.home.ArticleWebActivity
+import com.example.foty.mykotlin.utils.ToastUtil
 import kotlinx.android.synthetic.main.fragment_project_detail.*
 
 /**
@@ -53,6 +55,15 @@ class ProjectDetailFragment : BaseMvpFragment<ProjectDetailPresenter>(), Project
         adapter.setLoadingView(R.layout.rv_loading_layout)
         adapter.setOnLoadMoreListener {
             presenter.getDetailArticle(pageNum, cid)
+        }
+        adapter.run {
+            setOnItemClickListener { _, data, _ ->
+                ArticleWebActivity.startActivity(mContext, data.link)
+            }
+
+            setOnItemChildClickListener(R.id.projectCollectIv) { _, data, _ ->
+                ToastUtil.show(mContext, data.author)
+            }
         }
 
         projectRv.adapter = adapter

@@ -37,14 +37,14 @@ class NavigationFragment : BaseMvpFragment<NavigationPresenter>(), NavigationCon
     }
 
     override fun initView() {
-
+        Log.d("lxx", "创建fragment")
     }
 
     override fun lodaDataSuccess(data: List<NaviBean>) {
         val tabList = arrayListOf<String>()
 
-        for (item in data){
-            fragments.add(NavFragmentDetail.newInstance(item.articles as ArrayList<ArticlesItem> ))
+        for (item in data) {
+            fragments.add(NavFragmentDetail.newInstance(item.articles as ArrayList<ArticlesItem>))
             tabList.add(item.name)
         }
 
