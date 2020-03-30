@@ -46,6 +46,8 @@
         android:id="@+id/treeArticleCollectIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="50dp"
+        android:paddingTop="20dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_like" />

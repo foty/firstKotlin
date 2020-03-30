@@ -1,11 +1,14 @@
 package com.example.foty.mykotlin.system
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.adapter.SystemDetailAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
 import com.example.foty.mykotlin.beans.DatasItem
 import com.example.foty.mykotlin.beans.TreeDetailBean
+import com.example.foty.mykotlin.home.ArticleWebActivity
 import kotlinx.android.synthetic.main.fragment_system_detail.*
 
 /**
@@ -48,20 +51,20 @@ class SystemDetailFragment : BaseMvpFragment<SystemDetailPresenter>(), SystemDet
 
         adapter = SystemDetailAdapter(mContext, null, true).apply {
             setLoadingView(R.layout.rv_loading_layout)
-            setOnItemChildClickListener(R.id.treeArticleCollectIv) { _, data, _ ->
-
+            setOnItemChildClickListener(R.id.treeArticleCollectIv) { _, data, position ->
+                data.collect = !data.collect
+                adapter.notifyItemChanged(position)
             }
 
-            setOnItemClickListener { _, _, _ ->
-
-
+            setOnItemClickListener { _, data, _ ->
+                ArticleWebActivity.startActivity(mContext,data.link)
             }
 
             setOnLoadMoreListener {
-
+                presenter.getDatas(pageNum, cid)
             }
         }
-
+        recyclerView.layoutManager = LinearLayoutManager(mContext)
         recyclerView.adapter = adapter
     }
 
@@ -74,7 +77,7 @@ class SystemDetailFragment : BaseMvpFragment<SystemDetailPresenter>(), SystemDet
         } else {
             adapter.setLoadMoreData(data.datas)
         }
-        pageNum++;
+        pageNum++
         if (pageNum == data.pageCount) {
             adapter.loadEnd()
             return
