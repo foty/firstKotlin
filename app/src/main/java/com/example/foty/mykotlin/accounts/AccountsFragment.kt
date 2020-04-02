@@ -5,6 +5,7 @@ import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.adapter.AccountsAdapter
 import com.example.foty.mykotlin.base.BaseMvpFragment
 import com.example.foty.mykotlin.beans.ChapterBean
+import com.example.foty.mykotlin.utils.ToastUtil
 import kotlinx.android.synthetic.main.fragment_accounts.*
 
 /**
@@ -36,6 +37,10 @@ class AccountsFragment : BaseMvpFragment<AccountsPresenter>(), AccountsContract.
         adapter = AccountsAdapter(mContext, null, false)
         chapterRv.layoutManager = GridLayoutManager(mContext, 2)
         chapterRv.adapter = adapter
+        adapter.setOnItemClickListener { _, chapterBean, _ ->
+
+            AccountsDetailActivity.startActivity(mContext,chapterBean.id)
+        }
 
     }
 

@@ -102,7 +102,7 @@ interface WanAndroidApis {
      */
     @GET("wxarticle/list/{chapterId}/{pageNum}/json")
     fun chapterArticleList(@Path("chapterId") chapterId: Int,
-                           @Path("pageNum") pageNum: Int): Observable<BaseResponse<DataItemBean>>
+                           @Path("pageNum") pageNum: Int): Observable<BaseResponse<ChapterArticleBean>>
 
     /**
      * 微信公众号文章搜索

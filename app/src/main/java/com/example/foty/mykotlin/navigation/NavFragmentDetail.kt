@@ -5,6 +5,7 @@ import com.example.foty.mykotlin.R
 import com.example.foty.mykotlin.base.BaseFragment
 import com.example.foty.mykotlin.beans.ArticlesItem
 import com.example.foty.mykotlin.beans.NaviBean
+import com.example.foty.mykotlin.home.ArticleWebActivity
 import com.example.foty.mykotlin.utils.ToastUtil
 import com.example.foty.mykotlin.utils.addCommonView
 import kotlinx.android.synthetic.main.fragment_nav_detail.*
@@ -37,7 +38,8 @@ class NavFragmentDetail : BaseFragment() {
 
         for (item in list) {
             navDetailFL.addCommonView(mContext, item.title, R.color.c2C2C2C, R.drawable.website_selecter) {
-                ToastUtil.show(mContext, "666")
+
+                ArticleWebActivity.startActivity(mContext,item.link)
             }
         }
     }
