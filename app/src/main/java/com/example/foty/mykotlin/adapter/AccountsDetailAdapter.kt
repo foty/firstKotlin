@@ -18,7 +18,7 @@ class AccountsDetailAdapter(context: Context, list: List<DatasItem>?, loadMore: 
 
 
     override fun getItemLayoutId(): Int {
-        return R.layout.rv_item_chapter_layout
+        return R.layout.rv_item_chapter_detail_layout
     }
 
     override fun convert(holder: ViewHolder, item: DatasItem, position: Int) {
